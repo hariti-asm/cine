@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Schema extends Model
 {
     protected $fillable = [
-        'hall_id', 'name', 'layout'
+      'name', 'layout'
     ];
 
-    public function hall()
-    {
-        return $this->belongsTo(Hall::class);
-    }
+    protected $casts = [
+        'layout' => 'array'
+    ];
 }
