@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cinema_id')->constrained();
+            $table->foreignId('schema_id')->constrained();
             $table->string('seat_number');
             $table->string('status')->nullable();
 

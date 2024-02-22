@@ -11,21 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::disableForeignKeyConstraints();
         Schema::create('movies', function (Blueprint $table) {
-            
             $table->id();
+            $table->foreignId('genre_id')->constrained();
+            $table->foreignId('hall_id')->nullable()->constrained();
             $table->string('title');
             $table->text('description');
-            $table->foreignId('genre_id')->constrained()->nullable();
-            $table->string('actors')->nullable(); 
-            $table->string('producer')->nullable(); 
-            $table->string('running_time')->nullable(); 
-            $table->string('image')->nullable(); 
-            $table->string('publication_date');
-            $table->string('rating')->nullable();
-            $table->string('quality')->nullable();
-            $table->string('slug')->unique()->nullable(); 
+            $table->string('actors');
+            $table->string('producer');
+            $table->integer('running_time')->nullable();
+            $table->string('image');
+            $table->date('publication_date');
+            $table->decimal('rating', 3, 1)->nullable();
+            $table->string('quality');
+            $table->string('slug')->unique();
+
             $table->timestamps();
         });
     }

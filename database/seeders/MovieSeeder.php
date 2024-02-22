@@ -21,6 +21,7 @@ class MovieSeeder extends Seeder
                 'title' => 'The Super hero',
                 'description' => 'Description of The Northman.',
                 'genre_id' => 1, 
+                'hall_id'=>null,
                 'actors' => 'Actor 1, Actor 2',
                 'producer' => 'Producer 1',
                 'running_time' => 137,
@@ -33,6 +34,8 @@ class MovieSeeder extends Seeder
                 'title' => 'Doctor Strange in the Multiverse of Madness',
                 'description' => 'Description of Doctor Strange in the Multiverse of Madness.',
                 'genre_id' => 4, 
+                'hall_id'=>null,
+
                 'actors' => 'Actor 3, Actor 4',
                 'producer' => 'Producer 2',
                 'running_time' => 126,
@@ -45,6 +48,8 @@ class MovieSeeder extends Seeder
                 'title' => 'Memory',
                 'description' => 'Description of Memory.',
                 'genre_id' => 3, 
+                'hall_id'=>null,
+
                 'actors' => 'Actor 5, Actor 6',
                 'producer' => 'Producer 3',
                 'running_time' => null, 
@@ -57,6 +62,8 @@ class MovieSeeder extends Seeder
                 'title' => ' Unbearable Weight of Massive Talent',
                 'description' => 'Description of The Unbearable Weight of Massive Talent.',
                 'genre_id' => 4, 
+                'hall_id'=>null,
+
                 'actors' => 'Actor 7, Actor 8',
                 'producer' => 'Producer 4',
                 'running_time' => 107,
@@ -69,6 +76,8 @@ class MovieSeeder extends Seeder
                 'title' => 'Sonic the Hedgehog 2',
                 'description' => 'Description of Sonic the Hedgehog 2.',
                 'genre_id' => 4, 
+                'hall_id'=>null,
+
                 'actors' => 'Actor 1, Actor 2',
                 'producer' => 'Producer 1',
                 'running_time' => 122,
@@ -81,6 +90,8 @@ class MovieSeeder extends Seeder
                 'title' => 'Morbius',
                 'description' => 'Description of Morbius.',
                 'genre_id' => 4, 
+                'hall_id'=>null,
+
                 'actors' => 'Actor 3, Actor 4',
                 'producer' => 'Producer 2',
                 'running_time' => 104,
@@ -93,6 +104,8 @@ class MovieSeeder extends Seeder
                 'title' => 'The Adam Project',
                 'description' => 'Description of The Adam Project.',
                 'genre_id' => 3, 
+                'hall_id'=>null,
+
                 'actors' => 'Actor 5, Actor 6',
                 'producer' => 'Producer 3',
                 'running_time' => 106,
@@ -105,6 +118,8 @@ class MovieSeeder extends Seeder
                 'title' => 'Free Guy',
                 'description' => 'Description of Free Guy.',
                 'genre_id' => 1, 
+                'hall_id'=>null,
+
                 'actors' => 'Actor 7, Actor 8',
                 'producer' => 'Producer 4',
                 'running_time' => 115,
@@ -117,6 +132,8 @@ class MovieSeeder extends Seeder
                 'title' => 'The Batman',
                 'description' => 'Description of The Batman.',
                 'genre_id' => 2, 
+                'hall_id'=>null,
+
                 'actors' => 'Actor 9, Actor 10',
                 'producer' => 'Producer 5',
                 'running_time' => 176,
@@ -129,6 +146,8 @@ class MovieSeeder extends Seeder
                 'title' => 'Uncharted',
                 'description' => 'Description of Uncharted.',
                 'genre_id' => 3, 
+                'hall_id'=>null,
+
                 'actors' => 'Actor 11, Actor 12',
                 'producer' => 'Producer 6',
                 'running_time' => 116,
@@ -141,6 +160,8 @@ class MovieSeeder extends Seeder
                 'title' => 'Death on the Nile',
                 'description' => 'Description of Death on the Nile.',
                 'genre_id' => 2, 
+                'hall_id'=>null,
+
                 'actors' => 'Actor 13, Actor 14',
                 'producer' => 'Producer 7',
                 'running_time' => 127,
@@ -153,6 +174,8 @@ class MovieSeeder extends Seeder
                 'title' => 'The King\'s Man',
                 'description' => 'Description of The King\'s Man.',
                 'genre_id' => 3, 
+                'hall_id'=>null,
+
                 'actors' => 'Actor 15, Actor 16',
                 'producer' => 'Producer 8',
                 'running_time' => 131,
@@ -165,6 +188,8 @@ class MovieSeeder extends Seeder
                 'title' => 'The nbearable Weight of Massive Talent',
                 'description' => 'Description of The Unbearable Weight of Massive Talent.',
                 'genre_id' => 1, 
+                'hall_id'=>null,
+
                 'actors' => 'Actor 7, Actor 8',
                 'producer' => 'Producer 4',
                 'running_time' => 107,
