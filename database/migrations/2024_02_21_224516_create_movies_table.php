@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('running_time')->nullable(); 
             $table->string('image')->nullable(); 
             $table->string('publication_date');
-            $table->integer('rating')->nullable();
+            $table->string('rating')->nullable();
             $table->string('quality')->nullable();
             $table->string('slug')->unique()->nullable(); 
             $table->timestamps();
