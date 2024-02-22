@@ -27,8 +27,7 @@
 
 <body id="#top">
 
-    <!-- Your header content goes here -->
-
+<x-nav></x-nav>
     <main>
         <article>
 
