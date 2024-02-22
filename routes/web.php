@@ -17,6 +17,7 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/', [MovieController::class, 'index']);
 Route::get('/movie/{slug}', [MovieController::class, 'show'])->name('movie.show');
+Route::get('/schema/{slug}', [SchemaController::class, 'show'])->name('schema.show');
 
 
 Route::get('/dashboard', function () {

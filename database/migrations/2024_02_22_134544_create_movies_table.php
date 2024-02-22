@@ -15,11 +15,13 @@ return new class extends Migration
             $table->id();
             $table->foreignId('genre_id')->constrained();
             $table->foreignId('hall_id')->nullable()->constrained();
-            $table->string('title');
+            $table->string('name');
             $table->text('description');
             $table->string('actors');
             $table->string('producer');
             $table->integer('running_time')->nullable();
+            $table->date('playing_date')->nullable();
+
             $table->string('image');
             $table->date('publication_date');
             $table->decimal('rating', 3, 1)->nullable();

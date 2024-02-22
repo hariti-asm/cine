@@ -18,7 +18,7 @@ class MovieSeeder extends Seeder
     {
         $movies = [
             [
-                'title' => 'The Super hero',
+                'name' => 'The Super hero',
                 'description' => 'Description of The Northman.',
                 'genre_id' => 1, 
                 'hall_id'=>null,
@@ -27,11 +27,13 @@ class MovieSeeder extends Seeder
                 'running_time' => 137,
                 'image' => 'images/series-1.png',
                 'publication_date' => '2022-01-01',
+                'playing_date' => '2022-01-01',
+
                 'rating' => 8.5,
                 'quality' => 'HD',
             ],
             [
-                'title' => 'Doctor Strange in the Multiverse of Madness',
+                'name' => 'Doctor Strange in the Multiverse of Madness',
                 'description' => 'Description of Doctor Strange in the Multiverse of Madness.',
                 'genre_id' => 4, 
                 'hall_id'=>null,
@@ -41,11 +43,13 @@ class MovieSeeder extends Seeder
                 'running_time' => 126,
                 'image' => 'images/series-2.png',
                 'publication_date' => '2022-01-15',
+                'playing_date' => '2022-01-01',
+
                 'rating' => null, 
                 'quality' => '4K',
             ],
             [
-                'title' => 'Memory',
+                'name' => 'Memory',
                 'description' => 'Description of Memory.',
                 'genre_id' => 3, 
                 'hall_id'=>null,
@@ -55,11 +59,13 @@ class MovieSeeder extends Seeder
                 'running_time' => null, 
                 'image' => 'images/upcoming-3.png',
                 'publication_date' => '2022-02-01',
+                'playing_date' => '2022-01-01',
+
                 'rating' => null, 
                 'quality' => '2K',
             ],
             [
-                'title' => ' Unbearable Weight of Massive Talent',
+                'name' => ' Unbearable Weight of Massive Talent',
                 'description' => 'Description of The Unbearable Weight of Massive Talent.',
                 'genre_id' => 4, 
                 'hall_id'=>null,
@@ -69,11 +75,13 @@ class MovieSeeder extends Seeder
                 'running_time' => 107,
                 'image' => 'images/series-3.png',
                 'publication_date' => '2022-02-15',
+                'playing_date' => '2022-01-01',
+
                 'rating' => null, 
                 'quality' => 'HD',
             ],
             [
-                'title' => 'Sonic the Hedgehog 2',
+                'name' => 'Sonic the Hedgehog 2',
                 'description' => 'Description of Sonic the Hedgehog 2.',
                 'genre_id' => 4, 
                 'hall_id'=>null,
@@ -83,11 +91,13 @@ class MovieSeeder extends Seeder
                 'running_time' => 122,
                 'image' => 'images/series-4.png',
                 'publication_date' => '2022-01-01',
+                'playing_date' => '2022-01-01',
+
                 'rating' => 7.8, 
                 'quality' => '2K',
             ],
             [
-                'title' => 'Morbius',
+                'name' => 'Morbius',
                 'description' => 'Description of Morbius.',
                 'genre_id' => 4, 
                 'hall_id'=>null,
@@ -97,11 +107,13 @@ class MovieSeeder extends Seeder
                 'running_time' => 104,
                 'image' => 'images/movie-2.png',
                 'publication_date' => '2022-01-01',
+                'playing_date' => '2022-01-01',
+
                 'rating' => 5.9, 
                 'quality' => 'HD',
             ],
             [
-                'title' => 'The Adam Project',
+                'name' => 'The Adam Project',
                 'description' => 'Description of The Adam Project.',
                 'genre_id' => 3, 
                 'hall_id'=>null,
@@ -111,11 +123,13 @@ class MovieSeeder extends Seeder
                 'running_time' => 106,
                 'image' => 'images/movie-3.png',
                 'publication_date' => '2022-01-01',
+                'playing_date' => '2022-01-01',
+
                 'rating' => 7.0, 
                 'quality' => '4K',
             ],
             [
-                'title' => 'Free Guy',
+                'name' => 'Free Guy',
                 'description' => 'Description of Free Guy.',
                 'genre_id' => 1, 
                 'hall_id'=>null,
@@ -125,11 +139,13 @@ class MovieSeeder extends Seeder
                 'running_time' => 115,
                 'image' => 'images/movie-4.png',
                 'publication_date' => '2021-01-01',
+                'playing_date' => '2022-01-01',
+
                 'rating' => 7.7, 
                 'quality' => '4K',
             ],
             [
-                'title' => 'The Batman',
+                'name' => 'The Batman',
                 'description' => 'Description of The Batman.',
                 'genre_id' => 2, 
                 'hall_id'=>null,
@@ -139,11 +155,13 @@ class MovieSeeder extends Seeder
                 'running_time' => 176,
                 'image' => 'images/movie-5.png',
                 'publication_date' => '2022-01-01',
+                'playing_date' => '2022-01-01',
+
                 'rating' => 7.9, 
                 'quality' => '4K',
             ],
             [
-                'title' => 'Uncharted',
+                'name' => 'Uncharted',
                 'description' => 'Description of Uncharted.',
                 'genre_id' => 3, 
                 'hall_id'=>null,
@@ -153,11 +171,15 @@ class MovieSeeder extends Seeder
                 'running_time' => 116,
                 'image' => 'images/movie-6.png',
                 'publication_date' => '2022-01-01',
+                'playing_date' => '2022-01-01',
+
+                'playing_date' => '2022-01-01',
+
                 'rating' => 7.0, 
                 'quality' => 'HD',
             ],
             [
-                'title' => 'Death on the Nile',
+                'name' => 'Death on the Nile',
                 'description' => 'Description of Death on the Nile.',
                 'genre_id' => 2, 
                 'hall_id'=>null,
@@ -167,11 +189,13 @@ class MovieSeeder extends Seeder
                 'running_time' => 127,
                 'image' => 'images/movie-7.png',
                 'publication_date' => '2022-01-01',
+                'playing_date' => '2022-01-01',
+
                 'rating' => 6.5, 
                 'quality' => '2K',
             ],
             [
-                'title' => 'The King\'s Man',
+                'name' => 'The King\'s Man',
                 'description' => 'Description of The King\'s Man.',
                 'genre_id' => 3, 
                 'hall_id'=>null,
@@ -181,11 +205,13 @@ class MovieSeeder extends Seeder
                 'running_time' => 131,
                 'image' => 'images/movie-8.png',
                 'publication_date' => '2021-01-01',
+                'playing_date' => '2022-01-01',
+
                 'rating' => 7.0, 
                 'quality' => 'HD',
             ],
             [
-                'title' => 'The nbearable Weight of Massive Talent',
+                'name' => 'The nbearable Weight of Massive Talent',
                 'description' => 'Description of The Unbearable Weight of Massive Talent.',
                 'genre_id' => 1, 
                 'hall_id'=>null,
@@ -195,6 +221,8 @@ class MovieSeeder extends Seeder
                 'running_time' => 107,
                 'image' => 'images/upcoming-4.png',
                 'publication_date' => '2022-02-15',
+                'playing_date' => '2022-01-01',
+
                 'rating' => null, 
                 'quality' => 'HD',
             ],
@@ -202,14 +230,14 @@ class MovieSeeder extends Seeder
     
 
 foreach ($movies as &$movie) {
-    $slug = Str::slug($movie['title']);
+    $slug = Str::slug($movie['name']);
     $uniqueSlug = $slug;
     $counter = 1;
     while (Movie::where('slug', $uniqueSlug)->exists()) {
         $uniqueSlug = $slug . '-' . $counter++;
     }
     $movie['slug'] = $uniqueSlug;
-    Log::info("Title: {$movie['title']}, Slug: {$movie['slug']}");
+    Log::info("name: {$movie['name']}, Slug: {$movie['slug']}");
 }
 
         Movie::insert($movies);
