@@ -42,7 +42,7 @@
       <div class="overlay" data-overlay></div>
 
       <a href="./index.html" class="logo">
-        <img src="images/logo.svg" alt="Filmlane logo">
+        <img src="../images/logo.svg" alt="Filmlane logo">
       </a>
     
       <div class="search-btn">
