@@ -13,26 +13,42 @@
 <body>
 <div class="theatre">
     @foreach(range(1, $schema->rows) as $row)
-        <div class="cinema-seats left">
-            <div class="cinema-row row-{{ $row }}">
-                @foreach(range(1, $seatsPerRow) as $seat)
-                    <div class="seat"></div>
-                @endforeach
-            </div>
-        </div>
-    @endforeach
+    <div class="cinema-seats left">
+        <div class="cinema-row row-{{ $row }}">
+            @foreach(range(1, $seatsPerRow) as $seatNumber)
+                @php
+                    $currentSeat = $seats->where('id', $row)->where('seat_number', $seatNumber)->first();
 
-    @if($schema->sides === 'double')
+                    $seatClass = $currentSeat && $currentSeat->status === 'taken' ? 'seat active' : 'seat';
+                    // dd($seatClass);
+                @endphp
+                <div class="{{ $seatClass }}"></div>
+            @endforeach
+        </div>
+    </div>
+@endforeach
+
+
+@if($schema->sides === 'double')
     @foreach(range(1, $schema->rows) as $index => $row)
         <div class="cinema-seats left {{ $index == 0 ? 'ml-16' : '' }}">
             <div class="cinema-row row-{{ $row }}">
-                @foreach(range(1, $seatsPerRow) as $seat)
-                    <div class="seat"></div>
+                @foreach(range(1, $seatsPerRow) as $seatNumber)
+                {{-- @dd($seatNumber); --}}
+                    @php
+                        $currentSeat = $seats->firstWhere('id', $seatNumber);
+                        // @dd($currentSeat);
+
+                        $seatClass = $currentSeat && $currentSeat->status === 'taken' ? 'seat active' : 'seat';
+                    @endphp
+                    <div class="{{ $seatClass }}"></div>
                 @endforeach
             </div>
         </div>
     @endforeach
 @endif
+
+
 
 
 </div>

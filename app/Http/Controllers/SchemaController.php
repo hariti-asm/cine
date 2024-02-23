@@ -38,8 +38,9 @@ class SchemaController extends Controller
      */
 
      public function show(string $id)
-     {
+     { $ns=Seat::count();
          $schema = Schema::findOrFail($id);
+        //  dd($schema->id);
          $seatsPerRow = $schema->seats_per_row;
          $seats = Seat::where('schema_id', $schema->id)->get();
         //  var_dump($seats);
