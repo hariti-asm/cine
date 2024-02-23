@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('halls', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cinema_id')->constrained();
-            $table->foreignId('schema_id')->constrained();
+            $table->foreignId('cinema_id')->constrained()->nullable(h
+        );
+            $table->foreignId('schema_id')->constrained()->nullable();
 
             $table->string('name');
             $table->integer('capacity');
