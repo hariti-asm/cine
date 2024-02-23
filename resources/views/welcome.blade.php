@@ -19,7 +19,7 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 
   <!-- 
     - google font link
@@ -238,13 +238,17 @@
               <h2 class="h2 section-title">Upcoming Movies</h2>
             </div>
 
-            <ul class="filter-list">
 
-              @foreach ($genres as $genre)
-              <li>
-                  <button class="filter-btn">{{ $genre->name }}</button>
-              </li>
-            @endforeach
+            <ul class="filter-list">
+          @foreach ($genres as $genre)
+            <li>
+                <a href="{{ route('movies.genre', ['genre' => $genre->id]) }}">
+                    <button class="filter-btn">{{ $genre->name }}</button>
+                </a>
+            </li>
+          @endforeach
+           </ul>
+
           
           </div>
 
@@ -404,13 +408,13 @@
                     <div class="movie-card">
                         <a href="./movie-details.html">
                             <figure class="card-banner">
-                                <img src="{{ $movie->image }}" alt="{{ $movie->title }} movie poster">
+                                <img src="{{ $movie->image }}" alt="{{ $movie->name }} movie poster">
                             </figure>
                         </a>
     
-                        <div class="title-wrapper">
+                        <div class="name-wrapper">
                             <a href="./movie-details.html">
-                                <h3 class="card-title">{{ $movie->title }}</h3>
+                                <h3 class="card-name">{{ $movie->name }}</h3>
                             </a>
     
                             <time datetime="{{ $movie->publication_date }}">{{ date('Y', strtotime($movie->publication_date)) }}</time>
@@ -457,13 +461,13 @@
                     <div class="movie-card">
                         <a href="./movie-details.html">
                             <figure class="card-banner">
-                                <img src="{{ $tvSeries->image }}" alt="{{ $tvSeries->title }} movie poster">
+                                <img src="{{ $tvSeries->image }}" alt="{{ $tvSeries->name }} movie poster">
                             </figure>
                         </a>
     
                         <div class="title-wrapper">
                             <a href="./movie-details.html">
-                                <h3 class="card-title">{{ $tvSeries->title }}</h3>
+                                <h3 class="card-title">{{ $tvSeries->name }}</h3>
                             </a>
     
                             <time datetime="{{ $tvSeries->publication_date }}">{{ $tvSeries->publication_date }}</time>

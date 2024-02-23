@@ -43,14 +43,17 @@ class MovieController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function filtreParGenre(Genre $genre)
     {
-        //
+        $genres = Genre::all();
+        $movies = Movie::take(4)->get();
+        $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
+        $genres = Genre::all();
+        $tvSeries = $genre->movies()->take(4)->get();
+        $movies = $genre->movies()->get();
+        return view("welcome", compact('movies', 'genres','topRatedMovies', 'tvSeries'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         //
