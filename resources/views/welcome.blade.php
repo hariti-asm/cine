@@ -409,7 +409,7 @@
                     <div class="movie-card">
                         <a href="./movie-details.html">
                             <figure class="card-banner">
-                                <img src="{{ $movie->image }}" alt="{{ $movie->name }} movie poster">
+                                <img src="/{{ $movie->image }}" alt="{{ $movie->name }} movie poster">
                             </figure>
                         </a>
     
@@ -462,7 +462,7 @@
                     <div class="movie-card">
                         <a href="./movie-details.html">
                             <figure class="card-banner">
-                                <img src="{{ $tvSeries->image }}" alt="{{ $tvSeries->name }} movie poster">
+                                <img src="../{{ $tvSeries->image }}" alt="{{ $tvSeries->name }} movie poster">
                             </figure>
                         </a>
     
