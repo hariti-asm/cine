@@ -9,12 +9,14 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('schemas', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->json('layout'); 
+            $table->string('name');
+            $table->integer('rows');
+            $table->integer('seats_per_row');
+            $table->enum('sides', ['single', 'double']);
             $table->timestamps();
         });
     }

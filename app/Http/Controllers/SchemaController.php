@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Movie;
+use App\Models\Schema;
+use App\Models\Seat;
 
 class SchemaController extends Controller
 {
@@ -33,10 +36,21 @@ class SchemaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+
+     public function show(string $id)
+     {
+         $schema = Schema::findOrFail($id);
+         $seatsPerRow = $schema->seats_per_row;
+         $seats = Seat::where('schema_id', $schema->id)->get();
+        //  var_dump($seats);
+         return view('schemas.show', compact('schema', 'seats', 'seatsPerRow'));
+     }
+     
+     
+    
+    
+    
+    
 
     /**
      * Show the form for editing the specified resource.

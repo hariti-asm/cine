@@ -15,16 +15,228 @@ class SeatSeeder extends Seeder
      */
     public function run()
     {
-        $rows = ['A', 'B', 'C', 'D', 'E']; 
-        $seatsPerRow = 10; 
+        Seat::create([
+            'seat_number' => 'A5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
 
-        foreach ($rows as $row) {
-            for ($i = 1; $i <= $seatsPerRow; $i++) {
-                Seat::create([
-                    'seat_number' => $row . $i,
-                    'status' => 'available', 
-                    'schema_id' => 1, 
-                ]);
-            }
-        }
-    }}
+        Seat::create([
+            'seat_number' => 'A5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A4',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A6',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A7',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A8',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A9',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A50',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B4',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B6',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B7',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B8',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B9',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B50',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+        Seat::create([
+            'seat_number' => 'A5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A4',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A6',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A7',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A8',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A9',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'A50',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B4',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B5',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B6',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+        Seat::create([
+            'seat_number' => 'B7',
+            'status' => 'available', 
+            'schema_id' => 5, 
+        ]);
+
+       
+        
+    }
+}

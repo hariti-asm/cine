@@ -6,11 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Schema extends Model
 {
-    protected $fillable = [
-      'name', 'layout'
-    ];
+  protected $fillable = ['name', 'rows', 'seats_per_row', 'sides'];
 
-    protected $casts = [
-        'layout' => 'array'
-    ];
 }

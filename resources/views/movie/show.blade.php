@@ -107,9 +107,10 @@
                             </div>
               
                             <button class="btn btn-primary">
-                              {{-- <ion-icon name="play"></ion-icon> --}}
-              
-                              <span>Book Movie</span>
+                              <a href="{{ route('schema.show', ['id' => $movie->id]) }}">
+                     <span>Book Movie</span>
+            </a>
+
                             </button>
               
                           </div>

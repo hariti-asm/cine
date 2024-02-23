@@ -21,7 +21,7 @@ class MovieSeeder extends Seeder
                 'name' => 'The Super hero',
                 'description' => 'Description of The Northman.',
                 'genre_id' => 1, 
-                'hall_id'=>null,
+                'hall_id'=>4,
                 'actors' => 'Actor 1, Actor 2',
                 'producer' => 'Producer 1',
                 'running_time' => 137,
@@ -36,7 +36,7 @@ class MovieSeeder extends Seeder
                 'name' => 'Doctor Strange in the Multiverse of Madness',
                 'description' => 'Description of Doctor Strange in the Multiverse of Madness.',
                 'genre_id' => 4, 
-                'hall_id'=>null,
+                'hall_id'=>5,
 
                 'actors' => 'Actor 3, Actor 4',
                 'producer' => 'Producer 2',
