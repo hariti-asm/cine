@@ -8,49 +8,37 @@ use App\Models\Genre;
 
 class MovieController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $movies = Movie::take(4)->get();
-        $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
-        $genre = Genre::findOrFail(4);
-        $tvSeries = $genre->movies()->take(4)->get();
-        return view("welcome", compact('movies', 'topRatedMovies', 'tvSeries'));
-    }
-    
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+   
 
     /**
      * Display the specified resource.
      */
 
-     public function show(string $slug)
-     {
-         $movie = Movie::where('slug', $slug)->firstOrFail();
-         $genre = Genre::findOrFail(4);
-         $tvSeries = $genre->movies()->take(4)->get();
+ 
      
-         return view('movie.show', compact('movie', 'tvSeries'));
-     }
-     
-    
+       public function index()
+    {
+        $movies = Movie::take(4)->get();
+        $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
+        $genre = Genre::findOrFail(4);
+        $genres = Genre::all();
+        $tvSeries = $genre->movies()->take(4)->get();
+        return view("welcome", compact('movies', 'topRatedMovies', 'tvSeries','genres'));
+    }
+
+    public function search()
+    {
+        $query = Movie::query();
+        $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
+        $genre = Genre::findOrFail(4);
+        $genres = Genre::all();
+        $tvSeries = $genre->movies()->take(4)->get();
+        if ($search = request('search')) {
+            $query->where('name', 'like', '%'. $search . '%');
+        }
+        $movies = $query->get();
+        return view("welcome", compact('movies','topRatedMovies', 'tvSeries','genres'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -68,9 +56,15 @@ class MovieController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    public function show(string $slug)
+    {
+        $movie = Movie::where('slug', $slug)->firstOrFail();
+        $genre = Genre::findOrFail(4);
+        $tvSeries = $genre->movies()->take(4)->get();
+    
+        return view('movie.show', compact('movie', 'tvSeries'));
+    }
+   
     public function destroy(string $id)
     {
         //

@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css"> 
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
   <title>Filmlane - Best movie collections</title>
 
   <!-- 
@@ -31,7 +35,124 @@
     - #HEADER
   -->
 
- <x-nav></x-nav>
+  <header class="header" data-header>
+    <div class="container">
+
+      <div class="overlay" data-overlay></div>
+
+      <a href="./index.html" class="logo">
+        <img src="images/logo.svg" alt="Filmlane logo">
+      </a>
+    
+      <div class="search-btn">
+        <form class="max-w-lg mx-auto flex" method="GET" action="{{ route('movies.search') }}">
+          <input type="search"  name="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-100 bg-transparent border border-gray-900 rounded-e-lg border-s-gray-900 border-s-2 focus:ring-gray-100 focus:border-gray-100 dark:bg-gray-700 dark:border-s-gray-700 dark:border-gray-900 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-500" placeholder="" 
+          value="{{request('search')}}" />
+          <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-transparent rounded-e-lg border border-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-blue-800">
+          </form>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 20 20">
+              
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+            </svg>
+            <span class="sr-only">Search</span>
+          </button>
+      </div>
+      
+
+  <!-- Language Selection -->
+  <div class="lang-wrapper">
+    <select name="language" id="language" class="language-select">
+      <option value="en">EN</option>
+      <option value="au">AU</option>
+      <option value="ar">AR</option>
+      <option value="tu">TU</option>
+    </select>
+  </div>
+
+  <!-- Sign-in Button -->
+  <button class="btn btn-primary">Sign in</button>
+</div>
+
+      <button class="menu-open-btn" data-menu-open-btn>
+        <ion-icon name="reorder-two"></ion-icon>
+      </button>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+
+          <a href="./index.html" class="logo">
+            <img src="images/logo.svg" alt="Filmlane logo">
+          </a>
+
+          <button class="menu-close-btn" data-menu-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <ul class="navbar-list">
+{{-- Genre --}}
+          <li>
+            <a href="./index.html" class="navbar-link">Dashboard</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Movie</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Tv Show</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Web Series</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Pricing</a>
+          </li>
+
+        </ul>
+
+        <ul class="navbar-social-list">
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+  </header>
 
 
 
@@ -119,35 +240,34 @@
 
             <ul class="filter-list">
 
+              @foreach ($genres as $genre)
               <li>
-                <button class="filter-btn">Movies</button>
+                  <button class="filter-btn">{{ $genre->name }}</button>
               </li>
-
-              <li>
-                <button class="filter-btn">TV Shows</button>
-              </li>
-
-              <li>
-                <button class="filter-btn">Anime</button>
-              </li>
-
-            </ul>
-
+            @endforeach
+          
           </div>
 
           <ul class="movies-list has-scrollbar">
-            @foreach($movies as $movie)
+            @if($movies->isEmpty() && request('search'))
+        <p class="text-gray-100  font-bold"  >no movies found for search:: <span style="color: red;">{{ request('search') }}</span></p>
+       @else
+    <!-- Affichage des films -->
+    @foreach ($movies as $movie)
+
             <li>
                 <div class="movie-card">
-                  <a href="{{ route('movie.show', ['slug' => $movie->slug]) }}">
-                    <figure class="card-banner">
-                            <img src="/{{ ($movie->image) }}" alt="{{ $movie->title }} movie poster">
+                    {{-- {{ route('movie.details', $movie->id) }} --}}
+                    <a href="">
+                        <figure class="card-banner">
+                            <img src="/{{ ($movie->image) }}" alt="{{ $movie->name }} movie poster">
                         </figure>
                     </a>
         
                     <div class="title-wrapper">
-                      <a href="{{ route('movie.show', ['slug' => $movie->slug]) }}">
-                        <h3 class="card-title">{{ $movie->title }}</h3>
+                        {{-- {{ route('movie.details', $movie->id) }} --}}
+                        <a href="">
+                            <h3 class="card-title">{{ $movie->name }}</h3>
                         </a>
         
                         <time datetime="{{ $movie->publication_date }}">{{ date('Y', strtotime($movie->publication_date)) }}</time>
@@ -169,6 +289,7 @@
                 </div>
             </li>
             @endforeach
+            @endif
         </ul>
         
 
@@ -217,7 +338,7 @@
 
                   <div class="card-icon">
                     <ion-icon name="tv"></ion-icon>
-                           </div>
+                  </div>
 
                   <div class="card-content">
                     <h3 class="h3 card-title">Enjoy on Your TV.</h3>
@@ -281,15 +402,14 @@
                 @foreach($topRatedMovies as $movie)
                 <li>
                     <div class="movie-card">
-                      <a href="{{ route('movie.show', ['slug' => $movie->slug]) }}">
-                        <figure class="card-banner">
+                        <a href="./movie-details.html">
+                            <figure class="card-banner">
                                 <img src="{{ $movie->image }}" alt="{{ $movie->title }} movie poster">
                             </figure>
                         </a>
     
                         <div class="title-wrapper">
-                          <a href="{{ route('movie.show', ['slug' => $movie->slug]) }}">
-
+                            <a href="./movie-details.html">
                                 <h3 class="card-title">{{ $movie->title }}</h3>
                             </a>
     
@@ -335,16 +455,14 @@
                 @foreach($tvSeries as $tvSeries)
                 <li>
                     <div class="movie-card">
-                      <a href="{{ route('movie.show', ['slug' => $movie->slug]) }}">
-
+                        <a href="./movie-details.html">
                             <figure class="card-banner">
                                 <img src="{{ $tvSeries->image }}" alt="{{ $tvSeries->title }} movie poster">
                             </figure>
                         </a>
     
                         <div class="title-wrapper">
-                          <a href="{{ route('movie.show', ['slug' => $movie->slug]) }}">
-
+                            <a href="./movie-details.html">
                                 <h3 class="card-title">{{ $tvSeries->title }}</h3>
                             </a>
     

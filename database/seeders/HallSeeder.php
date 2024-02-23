@@ -12,7 +12,7 @@ class HallSeeder extends Seeder
      */
     public function run()
     {
-       
+    //    comment
     
         $halls = [
             [

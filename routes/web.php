@@ -19,6 +19,8 @@ Route::get('/', [MovieController::class, 'index']);
 Route::get('/movie/{slug}', [MovieController::class, 'show'])->name('movie.show');
 Route::get('/schema/{slug}', [SchemaController::class, 'show'])->name('schema.show');
 
+Route::get('/search', [MovieController::class, 'search'])->name('movies.search');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
