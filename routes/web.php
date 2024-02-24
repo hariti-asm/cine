@@ -25,9 +25,11 @@ Route::get('/hall/{id}', [SchemaController::class, 'show'])->name('schema.show')
 
 // Route::put('/seats/{id}', [SeatController::class, 'update'])->name('seats.update');
 Route::put('/seats/update/{id}', [SeatController::class, 'update'])->name('seats.update');
+
 Route::get('/tickets', function () {
-    return view('tickets.show')->name("tickets.show");
-});
+    return view('tickets.show');
+})->name("tickets");
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
