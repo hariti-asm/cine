@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Hall extends Model
 {
     protected $fillable = [
-        'cinema_id', 'name', 'capacity', 'schema_id'
+       'name', 'capacity', 'schema_id'
     ];
 
     public function cinema()

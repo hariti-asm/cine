@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Seat extends Model {
-    protected $fillable = [ 'seat_number','status','schema_id'];
+    protected $fillable = [ 'seat_number','status','hall_id'];
 
    
-    public function schema() {
-        return $this->belongsTo(Schema::class);
+    public function hall() {
+        return $this->belongsTo(Hall::class);
     }
 }
 

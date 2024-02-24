@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Movie;
-use App\Models\Schema;
 use App\Models\Seat;
 
-class SchemaController extends Controller
+class SeatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,22 +34,10 @@ class SchemaController extends Controller
     /**
      * Display the specified resource.
      */
-
-     public function show(string $id)
-     { $ns=Seat::count();
-         $schema = Schema::findOrFail($id);
-        //  dd($schema->id);
-         $seatsPerRow = $schema->seats_per_row;
-         $seats = Seat::where('hall_id', $schema->id)->get();
-        //  var_dump($seats);
-         return view('schemas.show', compact('schema', 'seats', 'seatsPerRow'));
-     }
-     
-     
-    
-    
-    
-    
+    public function show(string $id)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -66,8 +52,15 @@ class SchemaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $seat = Seat::findOrFail($id);
+    // dd($seat);
+        $seat->status = 'taken';
+        
+        $seat->save();
+    
+return redirect()->route('home')->with('success', 'Seat reserved successfully!');
     }
+    
 
     /**
      * Remove the specified resource from storage.

@@ -21,8 +21,8 @@ class SchemaSeeder extends Seeder
 
         Schema::create([
             'name' => 'Schema 2',
-            'rows' => 10,
-            'seats_per_row' => 8,
+            'rows' => 6,
+            'seats_per_row' => 6,
             'sides' => 'double', // Two sides
         ]);
     }

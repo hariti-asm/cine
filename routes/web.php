@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SchemaController;
 
+use App\Http\Controllers\SeatController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -17,11 +18,16 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', [MovieController::class, 'index']);
+Route::get('/', [MovieController::class, 'index'])->name('home');
 Route::get('/movie/{slug}', [MovieController::class, 'show'])->name('movie.show');
-Route::get('/schema/{id}', [SchemaController::class, 'show'])->name('schema.show');
+Route::get('/hall/{id}', [SchemaController::class, 'show'])->name('schema.show');
 
 
+// Route::put('/seats/{id}', [SeatController::class, 'update'])->name('seats.update');
+Route::put('/seats/update/{id}', [SeatController::class, 'update'])->name('seats.update');
+Route::get('/tickets', function () {
+    return view('tickets.show')->name("tickets.show");
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

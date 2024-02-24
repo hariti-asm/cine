@@ -83,6 +83,11 @@
 
                                     <time datetime="PT{{ $movie->running_time }}M">{{ $movie->running_time }} min</time>
                                 </div>
+                                <div>
+                                    <ion-icon name="time-outline"></ion-icon>
+
+                                    <time datetime="PT{{ $movie->running_time }}M">{{ $movie->hall->name }} min</time>
+                                </div>
 
                             </div>
 
@@ -107,7 +112,7 @@
                             </div>
               
                             <button class="btn btn-primary">
-                              <a href="{{ route('schema.show', ['id' => $movie->id]) }}">
+                              <a href="{{ route('schema.show', ['id' => $movie->hall->id]) }}">
                      <span>Book Movie</span>
             </a>
 
