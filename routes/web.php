@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SchemaController;
+use App\Http\Controllers\TicketController;
 
 use App\Http\Controllers\SeatController;
 use App\Http\Controllers\ProfileController;
@@ -26,9 +27,10 @@ Route::get('/hall/{id}', [SchemaController::class, 'show'])->name('schema.show')
 // Route::put('/seats/{id}', [SeatController::class, 'update'])->name('seats.update');
 Route::put('/seats/update/{id}', [SeatController::class, 'update'])->name('seats.update');
 
-Route::get('/tickets', function () {
-    return view('tickets.show');
-})->name("tickets");
+Route::get('/tickets/{movie}/{seat}', [TicketController::class, 'show'])->middleware(['auth', 'verified'])->name("tickets");
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

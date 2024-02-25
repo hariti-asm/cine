@@ -11,11 +11,6 @@ class Hall extends Model
        'name', 'capacity', 'schema_id'
     ];
 
-    public function cinema()
-    {
-        return $this->belongsTo(Cinema::class);
-    }
-
     public function schema()
     {
         return $this->belongsTo(Schema::class);

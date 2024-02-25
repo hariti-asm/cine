@@ -12,7 +12,7 @@ html {
 	height: 100vh;
 	display: grid;
 	font-family: "Staatliches", cursive;
-	background: #d83565;
+	background: hsl(228, 13%, 15%);
 	color: black;
 	font-size: 14px;
 	letter-spacing: 0.1em;
@@ -33,7 +33,6 @@ html {
 .image {
 	height: 250px;
 	width: 250px;
-	background-image: url("https://media.pitchfork.com/photos/60db53e71dfc7ddc9f5086f9/1:1/w_1656,h_1656,c_limit/Olivia-Rodrigo-Sour-Prom.jpg");
 	background-size: contain;
 	opacity: 0.85;
 }
@@ -66,7 +65,7 @@ html {
 }
 
 .ticket-info {
-	padding: 10px 30px;
+	padding: 10px 10px;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -97,21 +96,21 @@ html {
 }
 
 .date .june-29 {
-	color: #d83565;
+	color: hsl(57, 97%, 45%);
 	font-size: 20px;
 }
 
 .show-name {
-	font-size: 32px;
+	font-size: 16px;
 	font-family: "Nanum Pen Script", cursive;
-	color: #d83565;
+	color: white;
 }
 
 .show-name h1 {
 	font-size: 48px;
 	font-weight: 700;
-	letter-spacing: 0.1em;
-	color: #4a437e;
+	/* letter-spacing: 0.1em; */
+	color: hsl(57, 97%, 45%);
 }
 
 .time {

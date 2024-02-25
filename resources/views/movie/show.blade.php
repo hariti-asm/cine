@@ -145,8 +145,7 @@
                                 </a>
             
                                 <div class="title-wrapper">
-                                    <a href="                        {{ route('movie.show', $movie->id) }}
-                                        ">
+                                    <a href="{{ route('movie.show', $movie->id) }}">
                                         <h3 class="card-title">{{ $tvSeries->title }}</h3>
                                     </a>
             
