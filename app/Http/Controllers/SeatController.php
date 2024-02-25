@@ -58,7 +58,7 @@ class SeatController extends Controller
         
         $seat->save();
     
-return redirect()->route('home')->with('success', 'Seat reserved successfully!');
+return redirect()->route('tickets')->with('success', 'Seat reserved successfully!');
     }
     
 

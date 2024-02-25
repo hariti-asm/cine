@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="../css/ticket.css">
-    {{-- <link rel="stylesheet" href="./css/style.css"> --}}
 
     <script src="jquery-3.7.1.min.js"></script>
     <link rel="stylesheet"

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\Schema;
 use App\Models\Seat;
+use App\Models\Hall;
 
 class SchemaController extends Controller
 {
@@ -36,17 +37,25 @@ class SchemaController extends Controller
     /**
      * Display the specified resource.
      */
-
-     public function show(string $id)
-     { $ns=Seat::count();
-         $schema = Schema::findOrFail($id);
-        //  dd($schema->id);
-         $seatsPerRow = $schema->seats_per_row;
-         $seats = Seat::where('hall_id', $schema->id)->get();
-        //  var_dump($seats);
-         return view('schemas.show', compact('schema', 'seats', 'seatsPerRow'));
-     }
-     
+    public function show(string $id)
+    {
+        $ns = Seat::count();
+        
+        $movie = Movie::findOrFail($id);
+        // dd($movie);
+        $hall = $movie->hall; 
+        
+        if ($hall) {
+            $schema = $hall->schema;
+            $seatsPerRow = $schema->seats_per_row;
+            $seats = Seat::where('hall_id', $schema->id)->get();
+            
+            return view('schemas.show', compact('movie', 'schema', 'seats', 'seatsPerRow'));
+        } else {
+            echo"something goes wrong";
+    }
+}
+    
      
     
     

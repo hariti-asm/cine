@@ -112,7 +112,7 @@
                             </div>
               
                             <button class="btn btn-primary">
-                              <a href="{{ route('schema.show', ['id' => $movie->hall->id]) }}">
+                              <a href="{{ route('schema.show', ['id' => $movie->id]) }}">
                      <span>Book Movie</span>
             </a>
 

@@ -46,7 +46,6 @@ class MovieController extends Controller
          $movie = Movie::where('slug', $slug)->firstOrFail();
          $genre = Genre::findOrFail(4);
          $tvSeries = $genre->movies()->take(4)->get();
-     
          return view('movie.show', compact('movie', 'tvSeries'));
      }
      
