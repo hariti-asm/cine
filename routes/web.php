@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SchemaController;
-
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\ProviderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +35,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+ 
+Route::get('/auth/{provider}/redirect',[ProviderController::class,'redirect']);
+Route::get('/auth/{provider}/callback',[ProviderController::class,'callback']);
+ 
 require __DIR__.'/auth.php';
