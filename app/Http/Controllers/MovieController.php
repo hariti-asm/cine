@@ -8,8 +8,6 @@ use App\Models\Genre;
 
 class MovieController extends Controller
 {
-   
-
     /**
      * Display the specified resource.
      */
@@ -54,19 +52,29 @@ class MovieController extends Controller
         return view("welcome", compact('movies', 'genres','topRatedMovies', 'tvSeries'));
     }
 
+   
+
+     public function show(string $slug)
+     {
+         $movie = Movie::where('slug', $slug)->firstOrFail();
+         $genre = Genre::findOrFail(4);
+         $tvSeries = $genre->movies()->take(4)->get();
+         return view('movie.show', compact('movie', 'tvSeries'));
+     }
+     
+ 
+    
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+  
+
     public function update(Request $request, string $id)
     {
         //
     }
 
-    public function show(string $slug)
-    {
-        $movie = Movie::where('slug', $slug)->firstOrFail();
-        $genre = Genre::findOrFail(4);
-        $tvSeries = $genre->movies()->take(4)->get();
-    
-        return view('movie.show', compact('movie', 'tvSeries'));
-    }
    
     public function destroy(string $id)
     {

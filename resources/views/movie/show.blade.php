@@ -83,6 +83,11 @@
 
                                     <time datetime="PT{{ $movie->running_time }}M">{{ $movie->running_time }} min</time>
                                 </div>
+                                <div>
+                                    <ion-icon name="time-outline"></ion-icon>
+
+                                    <time datetime="PT{{ $movie->running_time }}M">{{ $movie->hall->name }} min</time>
+                                </div>
 
                             </div>
 
@@ -140,8 +145,7 @@
                                 </a>
             
                                 <div class="title-wrapper">
-                                    <a href="                        {{ route('movie.show', $movie->id) }}
-                                        ">
+                                    <a href="{{ route('movie.show', $movie->id) }}">
                                         <h3 class="card-title">{{ $tvSeries->title }}</h3>
                                     </a>
             

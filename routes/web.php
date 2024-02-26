@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SchemaController;
+use App\Http\Controllers\TicketController;
+
+use App\Http\Controllers\SeatController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\ProviderController;
 
@@ -17,9 +20,17 @@ use App\Http\Controllers\Auth\ProviderController;
 |
 */
 
-Route::get('/', [MovieController::class, 'index']);
+Route::get('/', [MovieController::class, 'index'])->name('home');
 Route::get('/movie/{slug}', [MovieController::class, 'show'])->name('movie.show');
-Route::get('/schema/{id}', [SchemaController::class, 'show'])->name('schema.show');
+Route::get('/hall/{id}', [SchemaController::class, 'show'])->name('schema.show');
+
+
+// Route::put('/seats/{id}', [SeatController::class, 'update'])->name('seats.update');
+Route::put('/seats/update/{id}', [SeatController::class, 'update'])->name('seats.update');
+
+Route::get('/tickets/{movie}/{seat}', [TicketController::class, 'show'])->middleware(['auth', 'verified'])->name("tickets");
+
+
 
 Route::get('/search', [MovieController::class, 'search'])->name('movies.search');
 Route::get('/genre/{genre}', [MovieController::class,'filtreParGenre'])->name('movies.genre');

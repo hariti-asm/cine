@@ -9,9 +9,13 @@ class Movie extends Model
 {
     protected $fillable = [
         'name', 'description', 'genre_id', 'hall_id', 'actors', 'producer', 'running_time', 'image',
-         'publication_date', 'rating', 'quality','slug','playing_date'
+         'publication_date', 'rating', 'quality','slug','playing_date','start_time','end_time'
     ];
-
+    protected $casts = [
+        'playing_date',
+        'running_time'
+    ];
+    
     public function genre()
     {
         return $this->belongsTo(Genre::class);

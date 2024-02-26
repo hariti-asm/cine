@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Movie;
-use App\Models\Schema;
 use App\Models\Seat;
-use App\Models\Hall;
 
-class SchemaController extends Controller
+class TicketController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,27 +35,13 @@ class SchemaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Movie $movie, Seat $seat)
     {
-        $ns = Seat::count();
-        
-        $movie = Movie::findOrFail($id);
-        // dd($movie);
-        $hall = $movie->hall; 
-        
-        if ($hall) {
-            $schema = $hall->schema;
-            $seatsPerRow = $schema->seats_per_row;
-            $seats = Seat::where('hall_id', $schema->id)->get();
-            
-            return view('schemas.show', compact('movie', 'schema', 'seats', 'seatsPerRow'));
-        } else {
-            echo"something goes wrong";
+        // No need to use findOrFail for $movie, as it's already resolved by Laravel
+        // No need to use findOrFail for $seat, as it's already resolved by Laravel
+    
+        return view('tickets.show', compact('movie', 'seat'));
     }
-}
-    
-     
-    
     
     
     

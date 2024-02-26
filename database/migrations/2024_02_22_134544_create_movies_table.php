@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('producer');
             $table->integer('running_time')->nullable();
             $table->date('playing_date')->nullable();
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
 
             $table->string('image');
             $table->date('publication_date');

@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Movie;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
-
+use Carbon\Carbon;
 class MovieSeeder extends Seeder
 {
     /**
@@ -21,12 +21,12 @@ class MovieSeeder extends Seeder
                 'name' => 'The Super hero',
                 'description' => 'Description of The Northman.',
                 'genre_id' => 1, 
-                'hall_id'=>4,
+                'hall_id'=>2,
                 'actors' => 'Actor 1, Actor 2',
                 'producer' => 'Producer 1',
                 'running_time' => 137,
                 'image' => 'images/series-1.png',
-                'publication_date' => '2022-01-01',
+                'publication_date' => '2022-03-01',
                 'playing_date' => '2022-01-01',
 
                 'rating' => 8.5,
@@ -36,7 +36,7 @@ class MovieSeeder extends Seeder
                 'name' => 'Doctor Strange in the Multiverse of Madness',
                 'description' => 'Description of Doctor Strange in the Multiverse of Madness.',
                 'genre_id' => 4, 
-                'hall_id'=>5,
+                'hall_id'=>1,
 
                 'actors' => 'Actor 3, Actor 4',
                 'producer' => 'Producer 2',
@@ -228,7 +228,17 @@ class MovieSeeder extends Seeder
             ],
         ];
     
-
+        foreach ($movies as &$movie) {
+            $startTime = Carbon::parse($movie['playing_date']);
+            $endTime = $startTime->copy()->addMinutes($movie['running_time']);
+        
+            // Format start time as hours and minutes (e.g., 8:00 PM)
+            $movie['start_time'] = $startTime->format('g:i A');
+        
+            // Format end time as hours and minutes (e.g., 11:00 PM)
+            $movie['end_time'] = $endTime->format('g:i A');
+        }
+        
 foreach ($movies as &$movie) {
     $slug = Str::slug($movie['name']);
     $uniqueSlug = $slug;

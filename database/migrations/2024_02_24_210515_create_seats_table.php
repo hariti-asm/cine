@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('schema_id')->constrained();
+            $table->foreignId('hall_id')->constrained()->nullable();
             $table->string('seat_number');
             $table->string('status')->nullable();
+            $table->string('type')->nullable();
+            $table->string('price')->nullable();
+
+
 
             $table->timestamps();
         });

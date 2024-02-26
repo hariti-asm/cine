@@ -16,13 +16,11 @@ class HallSeeder extends Seeder
     
         $halls = [
             [
-                'cinema_id' => 1, 
                 'name' => 'Hall 1',
                 'capacity' => 100,
                 'schema_id' => 2, 
             ],
             [
-                'cinema_id' => 1, 
                 'name' => 'Hall 2',
                 'capacity' => 150, 
                 'schema_id' => 2, 
