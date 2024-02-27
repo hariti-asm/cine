@@ -19,21 +19,17 @@ use App\Http\Controllers\Auth\ProviderController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', [MovieController::class, 'index'])->name('home');
-Route::get('/movie/{slug}', [MovieController::class, 'show'])->name('movie.show');
-Route::get('/hall/{id}', [SchemaController::class, 'show'])->name('schema.show');
-
+Route::get('/', function () {
+    return view('auth/login');
+});
+Route::middleware(['auth'])->group(function () {
+    Route::get('/Home', [MovieController::class, 'index'])->name('home');
+    Route::get('/movie/{slug}', [MovieController::class, 'show'])->name('movie.show');
+    Route::get('/hall/{id}', [SchemaController::class, 'show'])->name('schema.show');
+});
 
 // Route::put('/seats/{id}', [SeatController::class, 'update'])->name('seats.update');
-Route::put('/seats/update/{id}', [SeatController::class, 'update'])->name('seats.update');
 
-Route::get('/tickets/{movie}/{seat}', [TicketController::class, 'show'])->middleware(['auth', 'verified'])->name("tickets");
-
-
-
-Route::get('/search', [MovieController::class, 'search'])->name('movies.search');
-Route::get('/genre/{genre}', [MovieController::class,'filtreParGenre'])->name('movies.genre');
 
 
 Route::get('/dashboard', function () {
@@ -44,6 +40,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::put('/seats/update/{id}', [SeatController::class, 'update'])->name('seats.update');
+    Route::get('/tickets/{movie}/{seat}', [TicketController::class, 'show'])->middleware(['auth', 'verified'])->name("tickets");
+    Route::get('/search', [MovieController::class, 'search'])->name('movies.search');
+    Route::get('/genre/{genre}', [MovieController::class,'filtreParGenre'])->name('movies.genre');
 });
 
 
@@ -51,4 +51,10 @@ Route::middleware('auth')->group(function () {
 Route::get('/auth/{provider}/redirect',[ProviderController::class,'redirect']);
 Route::get('/auth/{provider}/callback',[ProviderController::class,'callback']);
  
+
+Route::get('/logout', function () {
+    request()->session()->invalidate();
+    \Illuminate\Support\Facades\Auth::logout();
+    return redirect('/login');
+})->name('logout.home');
 require __DIR__.'/auth.php';
