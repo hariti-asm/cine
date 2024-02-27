@@ -19,6 +19,15 @@ use App\Http\Controllers\Auth\ProviderController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/', function () {
+    return view('auth/login');
+});
+Route::middleware(['auth'])->group(function () {
+    Route::get('/Home', [MovieController::class, 'index'])->name('home');
+    Route::get('/movie/{slug}', [MovieController::class, 'show'])->name('movie.show');
+    Route::get('/hall/{id}', [SchemaController::class, 'show'])->name('schema.show');
+});
 Route::get('/', function () {
     return view('auth/login');
 });
@@ -50,6 +59,13 @@ Route::middleware('auth')->group(function () {
  
 Route::get('/auth/{provider}/redirect',[ProviderController::class,'redirect']);
 Route::get('/auth/{provider}/callback',[ProviderController::class,'callback']);
+
+Route::get('/logout', function () {
+    request()->session()->invalidate();
+    \Illuminate\Support\Facades\Auth::logout();
+    return redirect('/login');
+})->name('logout.home');
+
  
 
 Route::get('/logout', function () {

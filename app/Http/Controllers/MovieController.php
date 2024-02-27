@@ -21,11 +21,18 @@ class MovieController extends Controller
         return view("welcome", compact('movies', 'topRatedMovies', 'tvSeries'));
     }
 
+    public function filtreParGenre(Genre $genre)
+    {
+        $genres = Genre::all();
+        $movies = Movie::take(4)->get();
+        $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
+        $genres = Genre::all();
+        $tvSeries = $genre->movies()->take(4)->get();
+        $movies = $genre->movies()->get();
+        return view("welcome", compact('movies', 'genres','topRatedMovies', 'tvSeries'));
+    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function search()
     {
         //
     }
@@ -33,15 +40,6 @@ class MovieController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-
      public function show(string $slug)
      {
          $movie = Movie::where('slug', $slug)->firstOrFail();
@@ -50,20 +48,15 @@ class MovieController extends Controller
 
          return view('movie.show', compact('movie', 'tvSeries'));
      }
-
-
+     
+ 
+    
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
-    }
+  
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         //
