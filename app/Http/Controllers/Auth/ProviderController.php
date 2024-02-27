@@ -27,7 +27,7 @@ class ProviderController extends Controller
         'provider_token' => $SocialUser->token,
     ]);
     Auth::login($user);
-    return redirect('/');
+    return redirect('/Home');
    }
   
 }
