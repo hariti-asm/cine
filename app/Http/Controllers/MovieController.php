@@ -24,6 +24,17 @@ class MovieController extends Controller
         return view("welcome", compact('movies', 'topRatedMovies', 'tvSeries','genres'));
     }
 
+    public function filtreParGenre(Genre $genre)
+    {
+        $genres = Genre::all();
+        $movies = Movie::take(4)->get();
+        $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
+        $genres = Genre::all();
+        $tvSeries = $genre->movies()->take(4)->get();
+        $movies = $genre->movies()->get();
+        return view("welcome", compact('movies', 'genres','topRatedMovies', 'tvSeries'));
+    }
+
     public function search()
     {
         $query = Movie::query();
@@ -41,19 +52,6 @@ class MovieController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function filtreParGenre(Genre $genre)
-    {
-        $genres = Genre::all();
-        $movies = Movie::take(4)->get();
-        $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
-        $genres = Genre::all();
-        $tvSeries = $genre->movies()->take(4)->get();
-        $movies = $genre->movies()->get();
-        return view("welcome", compact('movies', 'genres','topRatedMovies', 'tvSeries'));
-    }
-
-   
-
      public function show(string $slug)
      {
          $movie = Movie::where('slug', $slug)->firstOrFail();
@@ -62,13 +60,6 @@ class MovieController extends Controller
          return view('movie.show', compact('movie', 'tvSeries'));
      }
      
- 
-    
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-  
 
     public function update(Request $request, string $id)
     {

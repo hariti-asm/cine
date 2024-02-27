@@ -71,7 +71,13 @@
   </div>
 
   <!-- Sign-in Button -->
-  <button class="btn btn-primary">Sign in</button>
+  @if(Auth::check())
+  <!-- Log out Button -->
+  <form action="{{ route('logout.home') }}" method="POST">
+    @csrf
+    <button type="submit" class="btn btn-primary">Log Out</button>
+  </form>
+@endif
 </div>
 
       <button class="menu-open-btn" data-menu-open-btn>

@@ -20,10 +20,14 @@ use App\Http\Controllers\Auth\ProviderController;
 |
 */
 
-Route::get('/', [MovieController::class, 'index'])->name('home');
-Route::get('/movie/{slug}', [MovieController::class, 'show'])->name('movie.show');
-Route::get('/hall/{id}', [SchemaController::class, 'show'])->name('schema.show');
-
+Route::get('/', function () {
+    return view('auth/login');
+});
+Route::middleware(['auth'])->group(function () {
+    Route::get('/Home', [MovieController::class, 'index'])->name('home');
+    Route::get('/movie/{slug}', [MovieController::class, 'show'])->name('movie.show');
+    Route::get('/hall/{id}', [SchemaController::class, 'show'])->name('schema.show');
+});
 
 // Route::put('/seats/{id}', [SeatController::class, 'update'])->name('seats.update');
 Route::put('/seats/update/{id}', [SeatController::class, 'update'])->name('seats.update');
@@ -50,5 +54,12 @@ Route::middleware('auth')->group(function () {
  
 Route::get('/auth/{provider}/redirect',[ProviderController::class,'redirect']);
 Route::get('/auth/{provider}/callback',[ProviderController::class,'callback']);
+
+Route::get('/logout', function () {
+    request()->session()->invalidate();
+    \Illuminate\Support\Facades\Auth::logout();
+    return redirect('/login');
+})->name('logout.home');
+
  
 require __DIR__.'/auth.php';
