@@ -70,9 +70,14 @@
     </select>
   </div>
 
-  <!-- Sign-in Button -->
-  <button class="btn btn-primary">Sign in</button>
-</div>
+  <!-- Log out Button -->
+      @if(Auth::check())>
+      <form action="{{ route('logout.home') }}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-primary">Log Out</button>
+      </form>
+    @endif 
+    </div>
 
       <button class="menu-open-btn" data-menu-open-btn>
         <ion-icon name="reorder-two"></ion-icon>
