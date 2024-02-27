@@ -25,10 +25,11 @@ class ProviderController extends Controller
         'name' => $SocialUser->name,
         'email' => $SocialUser->email,
         'provider_token' => $SocialUser->token,
-    
+
     ]);
+
     Auth::login($user);
     return redirect('/Home');
    }
-  
+
 }
