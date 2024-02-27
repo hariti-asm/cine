@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SchemaController;
 use App\Http\Controllers\TicketController;
-
+use \App\Http\Middleware\MemberMiddleware;
+use \App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\SeatController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\ProviderController;
