@@ -41,9 +41,6 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -56,7 +53,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
- 
+
 Route::get('/auth/{provider}/redirect',[ProviderController::class,'redirect']);
 Route::get('/auth/{provider}/callback',[ProviderController::class,'callback']);
 
@@ -66,7 +63,12 @@ Route::get('/logout', function () {
     return redirect('/login');
 })->name('logout.home');
 
- 
+ //This Part for Route Of Dashboard
+Route::get('dashboard' , [\App\Http\Controllers\AdminController::class ,  'alldata']);
+Route::get('schema' , function (){
+   return view('admin');
+});
+
 
 Route::get('/logout', function () {
     request()->session()->invalidate();

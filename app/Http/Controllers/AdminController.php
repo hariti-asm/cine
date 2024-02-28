@@ -12,14 +12,21 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
 
-    public function statistique(){
+    public function alldata(){
         $moviecount = Movie::count();
         $shemacount = Schema::count();
         $Genrecount = Genre::count();
         $hallcount = Hall::count();
 
-        return view('dashboard' , compact('hallcount' , 'Genrecount' , 'shemacount' , 'moviecount'));
+
+        $schemas = Schema::all();
+        $genres = Genre::all();
+        $movies = Movie::all();
+        $halls = Hall::all();
+        return view('dashboard' , compact('hallcount' , 'Genrecount' , 'shemacount' , 'moviecount' , 'schemas' , 'genres' , 'movies' , 'halls'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.

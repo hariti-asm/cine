@@ -1,4 +1,5 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
 
 
@@ -306,39 +307,45 @@
                         </template>
                     </li>
                     <!-- Profile menu -->
-                    <li class="relative">
-                        <button class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none" @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account" aria-haspopup="true">
-                            <img class="object-cover w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=200&amp;fit=max&amp;s=aa3a807e1bbdfd4364d1f449eaa96d82" alt="" aria-hidden="true">
-                        </button>
-                        <template x-if="isProfileMenuOpen">
-                            <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click.away="closeProfileMenu" @keydown.escape="closeProfileMenu" class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700" aria-label="submenu">
-                                <li class="flex">
-                                    <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200" href="#">
-                                        <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                        </svg>
-                                        <span>Profile</span>
-                                    </a>
-                                </li>
-                                <li class="flex">
-                                    <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200" href="#">
-                                        <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        </svg>
-                                        <span>Settings</span>
-                                    </a>
-                                </li>
-                                <li class="flex">
-                                    <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200" href="#">
-                                        <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
-                                        </svg>
-                                        <span>Log out</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </template>
+                    <li class="lg:gap-5  ">
+                        <div
+                            class="wallet flex items-center gap-2 text-white rounded-lg  max-[480px]:hidden">
+
+                            @if (Route::has('login'))
+                                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-left z-10">
+                                    @auth
+
+                                        <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class="flex text-sm rounded-full md:me-0" type="button">
+                                            <span class="sr-only">Open user menu</span>
+                                            <img class="w-8 h-8 rounded-full" src="img/userprofile.jpg" alt="user photo">
+                                        </button>
+
+                                        <!-- Dropdown menu -->
+                                        <div id="dropdownAvatar" class="z-10 hidden bg-gray-700 divide-y divide-gray-100 rounded-lg shadow w-44 ">
+                                            <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                                                <div>{{ Auth::user()->name }}</div>
+                                                <div class="font-medium truncate">{{ Auth::user()->email }}</div>
+                                            </div>
+                                            <div class="py-2">
+                                                <form method="post" action="{{route('logout')}}">
+                                                    @csrf
+                                                    <button class="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</button>
+                                                </form>
+
+                                            </div>
+                                        </div>
+
+                                    @else
+                                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+
+                                        @if (Route::has('register'))
+                                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                                        @endif
+                                    @endauth
+                                </div>
+                            @endif
+                        </div>
+
                     </li>
                 </ul>
             </div>
@@ -363,7 +370,7 @@
                                 Total Movies
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                6389
+                                {{$moviecount}}
                             </p>
                         </div>
                     </div>
@@ -379,7 +386,7 @@
                                 Account Genre
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                46
+                                {{$Genrecount}}
                             </p>
                         </div>
                     </div>
@@ -395,7 +402,7 @@
                                 Total Shema
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                376
+                                {{$shemacount}}
                             </p>
                         </div>
                     </div>
@@ -411,13 +418,13 @@
                                 Total Hall
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                35
+                                {{$hallcount}}
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- New Table -->
+                <!-- Genre Table -->
                 <div class="w-full overflow-hidden rounded-lg shadow-xs">
                     <div class="w-full overflow-x-auto">
                         <table class="w-full whitespace-no-wrap">
@@ -427,43 +434,156 @@
                                 <th class="px-4 py-3">rows</th>
                                 <th class="px-4 py-3">seats_per_row</th>
                                 <th class="px-4 py-3">sides</th>
+                                <th class="px-4 py-3">Action</th>
                             </tr>
                             </thead>
                             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                            @foreach($schemas as $shema)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td class="px-4 py-3">
                                     <div class="flex items-center text-sm">
-                                        <!-- Avatar with inset shadow -->
-                                        <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                            <img class="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=200&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE3Nzg0fQ" alt="" loading="lazy">
-                                            <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
-                                        </div>
+
                                         <div>
-                                            <p class="font-semibold">Hans Burger</p>
-                                            <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                10x Developer
-                                            </p>
+                                            <p class="font-semibold">{{$shema->name}}</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    $ 863.45
+                                    {{$shema->rows}}
                                 </td>
                                 <td class="px-4 py-3 text-xs">
-                        <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                          Approved
+                        <span class="px-2 py-1  font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                          {{$shema->seats_per_row}}
                         </span>
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    6/10/2020
+                                    {{$shema->sides}}
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    <button id="dropdownMenuIconHorizontalButton" data-dropdown-toggle="dropdownDotsHorizontal{{$shema->id}}" class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600" type="button">
+                                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
+                                            <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
+                                        </svg>
+                                    </button>
+
+                                    <!-- Dropdown menu -->
+                                    <div id="dropdownDotsHorizontal{{$shema->id}}" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                                        <div class="py-2">
+                                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Create</a>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
-
+                            @endforeach
 
                             </tbody>
                         </table>
                     </div>
                 </div>
+
+
+                <div class="w-full mt-5  overflow-hidden rounded-lg shadow-xs">
+                    <div class="w-full  overflow-x-auto">
+                        <table class="w-full whitespace-no-wrap">
+                            <thead>
+                            <tr class="text-xs mx-auto font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                <th class="px-4 py-3">Id</th>
+                                <th class="px-4 py-3">Genre</th>
+                            </tr>
+                            </thead>
+                            <tbody class="bg-white  divide-y dark:divide-gray-700 dark:bg-gray-800">
+                            @foreach($genres as $genre)
+                                <tr class="text-gray-700  dark:text-gray-400">
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center text-sm">
+
+                                        <div>
+                                            <p class="font-semibold"> {{$genre->id}}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    {{$genre->name}}
+                                </td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="w-full mt-5  overflow-hidden rounded-lg shadow-xs">
+                    <div class="w-full  overflow-x-auto">
+                        <table class="w-full whitespace-no-wrap">
+                            <thead>
+                            <tr class="text-xs mx-auto font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                <th class="px-4 py-3">Movie</th>
+                                <th class="px-4 py-3">playing_date</th>
+                                <th class="px-4 py-3">description</th>
+                                <th class="px-4 py-3">producer</th>
+
+                            </tr>
+                            </thead>
+                            <tbody class="bg-white  divide-y dark:divide-gray-700 dark:bg-gray-800">
+                            @foreach($movies as $movie)
+                                <tr class="text-gray-700  dark:text-gray-400">
+                                    <td class="px-4 py-3">
+                                        <div class="flex items-center text-sm">
+                                            <div>
+                                                <p class="font-semibold">{{$movie->name}}</p>
+                                                <p class="text-xs text-gray-600 dark:text-gray-400">
+                                                    {{$movie->actors}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-3 text-sm">
+                                        {{$movie->playing_date}}
+                                    </td>
+                                    <td class="px-4 py-3 text-sm">
+                                        {{$movie->description}}
+                                    </td>
+                                    <td class="px-4 py-3 text-sm">
+                                        {{$movie->producer}}
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="w-full mt-5  overflow-hidden rounded-lg shadow-xs">
+                    <div class="w-full  overflow-x-auto">
+                        <table class="w-full whitespace-no-wrap">
+                            <thead>
+                            <tr class="text-xs mx-auto font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                <th class="px-4 py-3">halls</th>
+                                <th class="px-4 py-3">capacity</th>
+                            </tr>
+                            </thead>
+                            <tbody class="bg-white  divide-y dark:divide-gray-700 dark:bg-gray-800">
+                            @foreach($halls as $hall)
+                                <tr class="text-gray-700  dark:text-gray-400">
+                                    <td class="px-4 py-3">
+                                        <div class="flex items-center text-sm">
+
+                                            <div>
+                                                <p class="font-semibold"> {{$hall->name}}</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-3 text-sm">
+                                        {{$hall->capacity}}
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
 
         </main>
     </div>
