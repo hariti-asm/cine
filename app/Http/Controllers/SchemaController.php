@@ -15,7 +15,9 @@ class SchemaController extends Controller
      */
     public function index()
     {
-        //
+        $shema = Schema::all();
+
+        return view('dashboard' , compact('shema'));
     }
 
     /**
@@ -23,7 +25,7 @@ class SchemaController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -40,27 +42,27 @@ class SchemaController extends Controller
     public function show(string $id)
     {
         $ns = Seat::count();
-        
+
         $movie = Movie::findOrFail($id);
         // dd($movie);
-        $hall = $movie->hall; 
-        
+        $hall = $movie->hall;
+
         if ($hall) {
             $schema = $hall->schema;
             $seatsPerRow = $schema->seats_per_row;
             $seats = Seat::where('hall_id', $schema->id)->get();
-            
+
             return view('schemas.show', compact('movie', 'schema', 'seats', 'seatsPerRow'));
         } else {
             echo"something goes wrong";
     }
 }
-    
-     
-    
-    
-    
-    
+
+
+
+
+
+
 
     /**
      * Show the form for editing the specified resource.

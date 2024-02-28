@@ -31,6 +31,16 @@ Route::middleware(['auth' , 'Member'])->group(function () {
     Route::get('/Home', [MovieController::class, 'index'])->name('home');
     Route::get('/movie/{slug}', [MovieController::class, 'show'])->name('movie.show');
     Route::get('/hall/{id}', [SchemaController::class, 'show'])->name('schema.show');
+
+});
+
+// Route::put('/seats/{id}', [SeatController::class, 'update'])->name('seats.update');
+
+
+
+
+Route::middleware('auth')->group(function () {
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -43,9 +53,23 @@ Route::middleware(['auth' , 'Member'])->group(function () {
 
 
 
+Route::get('/auth/{provider}/redirect',[ProviderController::class,'redirect']);
+Route::get('/auth/{provider}/callback',[ProviderController::class,'callback']);
+
+
+
+
+ //This Part for Route Of Dashboard
+Route::get('dashboard' , [\App\Http\Controllers\AdminController::class ,  'alldata']);
+Route::get('schema' , function (){
+   return view('admin');
+});
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
  
 Route::get('/auth/{provider}/redirect',[ProviderController::class,'redirect']);
