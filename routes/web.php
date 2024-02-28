@@ -7,6 +7,7 @@ use App\Http\Controllers\TicketController;
 
 use App\Http\Controllers\SeatController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GenreController;
 
 /*
 |--------------------------------------------------------------------------
