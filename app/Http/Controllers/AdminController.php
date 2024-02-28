@@ -27,7 +27,11 @@ class AdminController extends Controller
     }
 
 
+    public function schemadata(){
+        $schemas = Schema::all();
 
+        return view('admin.schema' , compact('schemas'));
+    }
     /**
      * Show the form for creating a new resource.
      */

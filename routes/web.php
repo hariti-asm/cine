@@ -65,9 +65,11 @@ Route::get('/logout', function () {
 
  //This Part for Route Of Dashboard
 Route::get('dashboard' , [\App\Http\Controllers\AdminController::class ,  'alldata']);
-Route::get('schema' , function (){
-   return view('admin');
-});
+Route::get('schema' , [\App\Http\Controllers\AdminController::class , 'schemadata']);
+Route::post('/makeschema' , [SchemaController::class , 'create'])->name('/addschema');
+Route::get('deleteshema{id}' , [SchemaController::class , 'destroy'])->name('/remove');
+Route::post('updateschema{id}' , [SchemaController::class , 'update'])->name('/update');
+
 
 
 Route::get('/logout', function () {

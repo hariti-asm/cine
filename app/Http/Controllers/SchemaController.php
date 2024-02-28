@@ -23,9 +23,23 @@ class SchemaController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'row' => 'required',
+            'seats' => 'required',
+            'sides' => 'required'
+        ]);
 
+        Schema::create([
+            'name' => $request->name,
+            'rows' => $request->row,
+            'seats_per_row' => $request->seats,
+            'sides' => $request->sides
+        ]);
+
+        return redirect()->back()->with('SuccessFully');
     }
 
     /**
@@ -75,9 +89,23 @@ class SchemaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Schema $id)
     {
-        //
+        $request->validate([
+            'nameofshema' => 'required',
+            'rownum' => 'required',
+            'seatsrow' => 'required',
+            'sidesname' => 'required'
+        ]);
+
+        $id->update([
+            'name' => $request->nameofshema,
+            'rows' => $request->rownum,
+            'seats_per_row' => $request->seatsrow,
+            'sides' => $request->sidesname
+        ]);
+
+        return redirect()->back()->with('Updated');
     }
 
     /**
@@ -85,6 +113,9 @@ class SchemaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $schema = Schema::findOrFail($id);
+        $schema->delete();
+
+        return redirect()->back()->with('Deleted');
     }
 }
