@@ -8,9 +8,7 @@
   <title>Filmlane - Best movie collections</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- 
-    - favicon
-  -->
+
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
 
   <!-- 
