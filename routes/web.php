@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SchemaController;
 use App\Http\Controllers\TicketController;
-
+use \App\Http\Middleware\MemberMiddleware;
+use \App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\SeatController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\ProviderController;
@@ -23,18 +24,14 @@ use App\Http\Controllers\Auth\ProviderController;
 Route::get('/', function () {
     return view('auth/login');
 });
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'admin'])->group(function () {
+//e admin ici
+});
+Route::middleware(['auth' , 'Member'])->group(function () {
     Route::get('/Home', [MovieController::class, 'index'])->name('home');
     Route::get('/movie/{slug}', [MovieController::class, 'show'])->name('movie.show');
     Route::get('/hall/{id}', [SchemaController::class, 'show'])->name('schema.show');
-});
-Route::get('/', function () {
-    return view('auth/login');
-});
-Route::middleware(['auth'])->group(function () {
-    Route::get('/Home', [MovieController::class, 'index'])->name('home');
-    Route::get('/movie/{slug}', [MovieController::class, 'show'])->name('movie.show');
-    Route::get('/hall/{id}', [SchemaController::class, 'show'])->name('schema.show');
+
 });
 
 // Route::put('/seats/{id}', [SeatController::class, 'update'])->name('seats.update');
@@ -43,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::middleware('auth')->group(function () {
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -54,14 +52,12 @@ Route::middleware('auth')->group(function () {
 
 
 
+
 Route::get('/auth/{provider}/redirect',[ProviderController::class,'redirect']);
 Route::get('/auth/{provider}/callback',[ProviderController::class,'callback']);
 
-Route::get('/logout', function () {
-    request()->session()->invalidate();
-    \Illuminate\Support\Facades\Auth::logout();
-    return redirect('/login');
-})->name('logout.home');
+
+
 
  //This Part for Route Of Dashboard
 Route::get('dashboard' , [\App\Http\Controllers\AdminController::class ,  'alldata']);
@@ -70,6 +66,14 @@ Route::get('schema' , function (){
 });
 
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+
+ 
+Route::get('/auth/{provider}/redirect',[ProviderController::class,'redirect']);
+Route::get('/auth/{provider}/callback',[ProviderController::class,'callback']);
 Route::get('/logout', function () {
     request()->session()->invalidate();
     \Illuminate\Support\Facades\Auth::logout();
