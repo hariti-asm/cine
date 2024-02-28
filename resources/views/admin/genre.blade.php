@@ -1,5 +1,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 
 
@@ -352,148 +353,28 @@
         </header>
         <main class="h-full overflow-y-auto">
             <div class="container px-6 mx-auto grid">
-                <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                    Dashboard
-                </h2>
-                <!-- CTA -->
-                <!-- Cards -->
-                <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-                    <!-- Card -->
-                    <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                        <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Total Movies
-                            </p>
-                            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                {{$moviecount}}
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Card -->
-                    <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                        <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Account Genre
-                            </p>
-                            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                {{$Genrecount}}
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Card -->
-                    <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                        <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Total Shema
-                            </p>
-                            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                {{$shemacount}}
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Card -->
-                    <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                        <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Total Hall
-                            </p>
-                            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                {{$hallcount}}
-                            </p>
-                        </div>
-                    </div>
+
+                <div class="flex justify-between">
+                    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+                        Add New Genre
+                    </h2>
+                    <button data-modal-target="genre-modal" data-modal-toggle="genre-modal" class="text-white"><i class='bx bx-plus'></i></button>
                 </div>
 
-                <!-- Genre Table -->
-                <div class="w-full overflow-hidden rounded-lg shadow-xs">
-                    <div class="w-full overflow-x-auto">
-                        <table class="w-full whitespace-no-wrap">
-                            <thead>
-                            <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                <th class="px-4 py-3">Schemas</th>
-                                <th class="px-4 py-3">rows</th>
-                                <th class="px-4 py-3">seats_per_row</th>
-                                <th class="px-4 py-3">sides</th>
-                                <th class="px-4 py-3">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                            @foreach($schemas as $shema)
-                            <tr class="text-gray-700 dark:text-gray-400">
-                                <td class="px-4 py-3">
-                                    <div class="flex items-center text-sm">
+            <div class="w-full mt-5  overflow-hidden rounded-lg shadow-xs">
+                <div class="w-full  overflow-x-auto">
+                    <table class="w-full whitespace-no-wrap">
+                        <thead>
+                        <tr class="text-xs mx-auto font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                            <th class="px-4 py-3">Id</th>
+                            <th class="px-4 py-3">Genre</th>
+                            <th class="px-4 py-3">Action</th>
 
-                                        <div>
-                                            <p class="font-semibold">{{$shema->name}}</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    {{$shema->rows}}
-                                </td>
-                                <td class="px-4 py-3 text-xs">
-                        <span class="px-2 py-1  font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                          {{$shema->seats_per_row}}
-                        </span>
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    {{$shema->sides}}
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    <button id="dropdownMenuIconHorizontalButton" data-dropdown-toggle="dropdownDotsHorizontal{{$shema->id}}" class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600" type="button">
-                                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
-                                            <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
-                                        </svg>
-                                    </button>
-
-                                    <!-- Dropdown menu -->
-                                    <div id="dropdownDotsHorizontal{{$shema->id}}" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                                        <div class="py-2">
-                                            <a href="/schema" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Create</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-
-                <div class="w-full mt-5  overflow-hidden rounded-lg shadow-xs">
-                    <div class="w-full  overflow-x-auto">
-                        <table class="w-full whitespace-no-wrap">
-                            <thead>
-                            <tr class="text-xs mx-auto font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                <th class="px-4 py-3">Id</th>
-                                <th class="px-4 py-3">Genre</th>
-                            </tr>
-                            </thead>
-                            <tbody class="bg-white  divide-y dark:divide-gray-700 dark:bg-gray-800">
-                            @foreach($genres as $genre)
-                                <tr class="text-gray-700  dark:text-gray-400">
+                        </tr>
+                        </thead>
+                        <tbody class="bg-white  divide-y dark:divide-gray-700 dark:bg-gray-800">
+                        @foreach($genres as $genre)
+                            <tr class="text-gray-700  dark:text-gray-400">
                                 <td class="px-4 py-3">
                                     <div class="flex items-center text-sm">
 
@@ -505,86 +386,135 @@
                                 <td class="px-4 py-3 text-sm">
                                     {{$genre->name}}
                                 </td>
+
+
+                                <td class="px-4 py-3 text-sm">
+                                    <button id="dropdownMenuIconHorizontalButton" data-dropdown-toggle="dropdownDotsHorizontal{{$genre->id}}" class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100  dark:text-white dark:bg-gray-800 dark:hover:bg-gray-700 " type="button">
+                                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
+                                            <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
+                                        </svg>
+                                    </button>
+
+                                    <!-- Dropdown menu -->
+                                    <div id="dropdownDotsHorizontal{{$genre->id}}" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                                        <div class="py-2">
+                                            <a data-modal-target="edite-modal{{$genre->id}}" data-modal-toggle="edite-modal{{$genre->id}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Update</a>
+
+                                            <button data-popover-target="popover-click{{$genre->id}}" data-popover-placement="bottom" data-popover-trigger="click" type="button" class="block px-4 py-2 text-sm text-gray-700  dark:text-gray-200 dark:hover:text-white">Delete</button>
+
+                                        </div>
+                                    </div>
+
+                                </td>
+                                <div data-popover id="popover-click{{$genre->id}}" role="tooltip" class="absolute z-50 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                    <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                                        <h3 class="font-semibold text-gray-900 dark:text-white">Do You Want To Delete This Shema?</h3>
+                                    </div>
+                                    <div class="px-3 py-2 flex justify-center mx-auto">
+                                        <form method="get" action="{{route('/removegenre' , ['id' => $genre->id])}}">
+                                            @csrf
+                                            <button type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:outline-none  font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center" >Yes Im Sure</button>
+                                        </form>
+                                    </div>
+                                    <div data-popper-arrow></div>
+                                </div>
                             </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
 
 
-                <div class="w-full mt-5  overflow-hidden rounded-lg shadow-xs">
-                    <div class="w-full  overflow-x-auto">
-                        <table class="w-full whitespace-no-wrap">
-                            <thead>
-                            <tr class="text-xs mx-auto font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                <th class="px-4 py-3">Movie</th>
-                                <th class="px-4 py-3">playing_date</th>
-                                <th class="px-4 py-3">description</th>
-                                <th class="px-4 py-3">producer</th>
 
-                            </tr>
-                            </thead>
-                            <tbody class="bg-white  divide-y dark:divide-gray-700 dark:bg-gray-800">
-                            @foreach($movies as $movie)
-                                <tr class="text-gray-700  dark:text-gray-400">
-                                    <td class="px-4 py-3">
-                                        <div class="flex items-center text-sm">
-                                            <div>
-                                                <p class="font-semibold">{{$movie->name}}</p>
-                                                <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                    {{$movie->actors}}
-                                                </p>
+                            <!--Modal For Update -->
+                            <div id="edite-modal{{$genre->id}}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                <div class="relative p-4 w-full max-w-2xl max-h-full">
+                                    <!-- Modal content -->
+                                    <form method="post" action="{{route('/updategenre' , ['id' => $genre->id])}}">
+                                        @csrf
+                                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                            <!-- Modal header -->
+                                            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                                    Add New Schema
+                                                </h3>
+                                                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="edite-modal{{$genre->id}}">
+                                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                                    </svg>
+                                                    <span class="sr-only">Close modal</span>
+                                                </button>
+                                            </div>
+                                            <!-- Modal body -->
+                                            <div class="p-4 md:p-5 space-y-4">
+
+
+                                                <div>
+                                                    <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Genre name</label>
+                                                    <input type="text" name="genrename" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required />
+                                                </div>
+
+
+
+                                            </div>
+                                            <!-- Modal footer -->
+                                            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                                <button data-modal-hide="default-modal" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save </button>
+                                                <button data-modal-hide="default-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
                                             </div>
                                         </div>
-                                    </td>
-                                    <td class="px-4 py-3 text-sm">
-                                        {{$movie->playing_date}}
-                                    </td>
-                                    <td class="px-4 py-3 text-sm">
-                                        {{$movie->description}}
-                                    </td>
-                                    <td class="px-4 py-3 text-sm">
-                                        {{$movie->producer}}
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                                    </form>
+                                </div>
+                            </div>
+
+
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
-
-                <div class="w-full mt-5  overflow-hidden rounded-lg shadow-xs">
-                    <div class="w-full  overflow-x-auto">
-                        <table class="w-full whitespace-no-wrap">
-                            <thead>
-                            <tr class="text-xs mx-auto font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                <th class="px-4 py-3">halls</th>
-                                <th class="px-4 py-3">capacity</th>
-                            </tr>
-                            </thead>
-                            <tbody class="bg-white  divide-y dark:divide-gray-700 dark:bg-gray-800">
-                            @foreach($halls as $hall)
-                                <tr class="text-gray-700  dark:text-gray-400">
-                                    <td class="px-4 py-3">
-                                        <div class="flex items-center text-sm">
-
-                                            <div>
-                                                <p class="font-semibold"> {{$hall->name}}</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-3 text-sm">
-                                        {{$hall->capacity}}
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-
+            </div>
         </main>
+    </div>
+
+</div>
+
+
+
+
+<div id="genre-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <form method="post" action=" {{route('/addgenre')}}">
+            @csrf
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        Add New Schema
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="genre-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+
+
+                    <div>
+                        <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Genre name</label>
+                        <input type="text" name="name" id="Name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required />
+                    </div>
+
+
+
+
+
+                </div>
+                <!-- Modal footer -->
+                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button data-modal-hide="default-modal" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save </button>
+                    <button data-modal-hide="default-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

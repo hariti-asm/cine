@@ -65,15 +65,12 @@ Route::get('schema' , [\App\Http\Controllers\AdminController::class , 'schemadat
 Route::post('/makeschema' , [SchemaController::class , 'create'])->name('/addschema');
 Route::get('deleteshema{id}' , [SchemaController::class , 'destroy'])->name('/remove');
 Route::post('updateschema{id}' , [SchemaController::class , 'update'])->name('/update');
+Route::get('genre' , [\App\Http\Controllers\GenreController::class , 'index']);
+Route::post('makegenre' , [\App\Http\Controllers\GenreController::class , 'create'])->name('/addgenre');
+Route::get('deletegenre{id}' , [\App\Http\Controllers\GenreController::class , 'destroy'])->name('/removegenre');
+Route::post('update{id}' , [\App\Http\Controllers\GenreController::class , 'update'])->name('/updategenre');
 
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-
- 
 Route::get('/auth/{provider}/redirect',[ProviderController::class,'redirect']);
 Route::get('/auth/{provider}/callback',[ProviderController::class,'callback']);
 Route::get('/logout', function () {
