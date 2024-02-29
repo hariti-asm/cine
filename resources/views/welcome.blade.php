@@ -264,6 +264,7 @@
         <p class="text-gray-100  font-bold"  >no movies found for search:: <span style="color: red;">{{ request('search') }}</span></p>
        @else
     <!-- Affichage des films -->
+    @if($movies->count())
     @foreach ($movies as $movie)
 
             <li>
@@ -300,10 +301,13 @@
                 </div>
             </li>
             @endforeach
-            @endif
+           
         </ul>
         
-
+        {{ $movies->links() }}
+        
+        @endif
+            @endif
         </div>
       </section>
 
