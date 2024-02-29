@@ -16,7 +16,7 @@ class MovieController extends Controller
      
        public function index()
     {
-        $movies = Movie::take(4)->get();
+        $movies = Movie::paginate(4); 
         $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
         $genre = Genre::findOrFail(4);
         $genres = Genre::all();
@@ -27,7 +27,7 @@ class MovieController extends Controller
     public function filtreParGenre(Genre $genre)
     {
         $genres = Genre::all();
-        $movies = Movie::take(4)->get();
+        $movies = Movie::paginate(4);
         $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
         $genres = Genre::all();
         $tvSeries = $genre->movies()->take(4)->get();
@@ -37,7 +37,7 @@ class MovieController extends Controller
 
     public function search()
     {
-        $query = Movie::query();
+        $query = Movie::paginate(4); 
         $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
         $genre = Genre::findOrFail(4);
         $genres = Genre::all();
