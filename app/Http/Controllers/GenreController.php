@@ -13,10 +13,10 @@ class GenreController extends Controller
      */
     public function index()
     {
-        // $movies = Movie::take(4)->get();
-        // $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
+        $movies = Movie::take(4)->get();
+        $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
         $genres = Genre::All();
-        // $tvSeries = $genre->movies()->take(4)->get();
+        $tvSeries = $genre->movies()->take(4)->get();
         var_dump($genres);
         return view("welcome", compact( 'genres'));
     }

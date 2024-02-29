@@ -29,7 +29,10 @@ Route::get('/hall/{id}', [SchemaController::class, 'show'])->name('schema.show')
 Route::put('/seats/update/{id}', [SeatController::class, 'update'])->name('seats.update');
 
 Route::get('/tickets/{movie}/{seat}', [TicketController::class, 'show'])->middleware(['auth', 'verified'])->name("tickets");
+Route::get('/carbon',function(){
+return view('carbon');
 
+});
 
 
 

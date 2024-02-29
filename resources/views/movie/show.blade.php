@@ -15,7 +15,7 @@
     <!-- 
         - custom css link
       -->
-    <link rel="stylesheet" href="/css/style.css">
+     {{-- <link rel="stylesheet" href="/css/style.css"> --}}
 
     <!-- 
         - google font link
@@ -127,7 +127,8 @@
 
                 </div>
             </section>
-
+          
+            
             <section class="tv-series">
                 <div class="container">
             
