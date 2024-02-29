@@ -8,6 +8,7 @@
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
+        "laravel/legacy-factories": "^1.4",
         "laravel/sanctum": "^3.3",
         "laravel/socialite": "^5.12",
         "laravel/tinker": "^2.8"
@@ -19,8 +20,9 @@
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^7.0",
+        "nunomaduro/collision": "^7.10",
         "phpunit/phpunit": "^10.1",
+        "rachidlaasri/travel": "^1.06",
         "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {

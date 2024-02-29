@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\Genre;
-
+use Carbon\Carbon;
 class MovieController extends Controller
 {
     /**
@@ -55,9 +55,9 @@ class MovieController extends Controller
      public function show(string $slug)
      {
          $movie = Movie::where('slug', $slug)->firstOrFail();
-         $genre = Genre::findOrFail(4);
+        $genre = Genre::findOrFail(4);
          $tvSeries = $genre->movies()->take(4)->get();
-         return view('movie.show', compact('movie', 'tvSeries'));
+         return view('movie.show', compact('movie', 'tvSeries',));
      }
      
 

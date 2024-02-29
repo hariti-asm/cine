@@ -37,7 +37,7 @@
     </p>
     <div class="show-name">
         <h1>{{$movie->name}} </h1>
-        <h2>{{$movie->producer}}</h2>
+        <h2 class="text-black">youcode</h2>
     </div>
     <div class="time">
         <p>
