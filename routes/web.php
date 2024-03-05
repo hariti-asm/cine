@@ -69,6 +69,17 @@ Route::get('genre' , [\App\Http\Controllers\GenreController::class , 'index']);
 Route::post('makegenre' , [\App\Http\Controllers\GenreController::class , 'create'])->name('/addgenre');
 Route::get('deletegenre{id}' , [\App\Http\Controllers\GenreController::class , 'destroy'])->name('/removegenre');
 Route::post('update{id}' , [\App\Http\Controllers\GenreController::class , 'update'])->name('/updategenre');
+Route::get('movie' , [MovieController::class , 'showdata']);
+Route::post('makemovie' , [MovieController::class , 'create'])->name('/addmovie');
+Route::post('update{id}' , [MovieController::class , 'update'])->name('/updatemovie');
+Route::get('deltemovie{id}' , [MovieController::class , 'destroy'])->name('/remove');
+Route::get('hall' , [\App\Http\Controllers\HallController::class , 'index']);
+Route::post('makehall' , [\App\Http\Controllers\HallController::class , 'create'])->name('/addhall');
+Route::post('update{id}' , [\App\Http\Controllers\HallController::class , 'update'])->name('/updatehall');
+Route::get('delete{id}' , [\App\Http\Controllers\HallController::class , 'destroy'])->name('/removehall');
+//End The Route Of Dashboard
+
+
 
 
 Route::get('/auth/{provider}/redirect',[ProviderController::class,'redirect']);
